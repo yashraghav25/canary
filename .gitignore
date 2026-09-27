@@ -1,0 +1,18 @@
+# Downloaded datasets — not appropriate for a git repo.
+# See src/data/download_manifest.py and download.py to re-fetch.
+data/raw/
+
+# Generated caches, feature caches, and model checkpoints — reproducible from code + data.
+data/processed/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+
+.env
