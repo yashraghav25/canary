@@ -41,7 +41,7 @@ from data.readers import (
 app = Flask(__name__)
 CORS(app, origins=[
     "http://localhost:5174",
-    "https://canary-submission.vercel.app",
+    "https://canary-lake.vercel.app",
 ])
 
 # ---------------------------------------------------------------------------
