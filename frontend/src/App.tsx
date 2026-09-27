@@ -14,14 +14,17 @@ interface Dataset {
 
 interface ComparisonData {
   dataset_name: string;
+  modality: string;
   fault_detail: string;
-  mode: string;
-  file_analyzed: string;
-  spectrogram_b64: string;
-  comparison_b64: string;
-  waveform_normal_b64: string;
-  waveform_faulty_b64: string;
-  waveform_b64: string;
+  mode?: string;
+  file_analyzed?: string;
+  normal_file?: string;
+  faulty_file?: string;
+  spectrogram_b64?: string;
+  comparison_b64?: string;
+  waveform_normal_b64?: string;
+  waveform_faulty_b64?: string;
+  waveform_b64?: string;
   anomaly_score: number;
   threshold: number;
   score_ratio: number;
@@ -36,9 +39,7 @@ interface ComparisonData {
     action: string;
   } | null;
 }
-
-const API_BASE = 'http://127.0.0.1:8000';
-
+const API_BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 function PipelineTerminal({ 
   logs, 
   isComplete,
@@ -119,7 +120,6 @@ function PipelineTerminal({
 function App() {
   const [datasets, setDatasets] = useState<Dataset[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedDataset, setSelectedDataset] = useState<string | null>(null);
   
   // API Response state
   const [comparison, setComparison] = useState<ComparisonData | null>(null);
@@ -155,7 +155,6 @@ function App() {
   }, []);
 
   const handleCardClick = (datasetKey: string, datasetName: string, modality: string, mode: 'normal' | 'faulty') => {
-    setSelectedDataset(datasetKey);
     setComparison(null);
     setApiFailed(false);
     
@@ -169,7 +168,11 @@ function App() {
       `[SYSTEM] Connecting to backend engine...`,
     ]);
 
-    fetch(`${API_BASE}/api/analyze/${datasetKey}?mode=${mode}`)
+    const endpoint = mode === 'faulty' 
+      ? `${API_BASE}/api/compare/${datasetKey}` 
+      : `${API_BASE}/api/analyze/${datasetKey}?mode=normal`;
+
+    fetch(endpoint)
       .then(res => {
         if (!res.ok) throw new Error("Failed to fetch comparison data");
         return res.json();
@@ -201,7 +204,6 @@ function App() {
   };
 
   const closeResults = () => {
-    setSelectedDataset(null);
     setHasStartedInference(false);
     setShowResults(false);
   };

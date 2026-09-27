@@ -16,3 +16,53 @@ __pycache__/
 Thumbs.db
 
 .env
+
+# Ignore all sample data except showcase files
+sample_data/**
+!sample_data/cwru/
+!sample_data/cwru/1750 RPM/
+!sample_data/cwru/1750 RPM/1750_Normal.npz
+!sample_data/cwru/1730 RPM/
+!sample_data/cwru/1730 RPM/1730_IR_14_DE48.npz
+
+!sample_data/subf/
+!sample_data/subf/Dataset/
+!sample_data/subf/Dataset/Normal/
+!sample_data/subf/Dataset/Normal/S_N(1).csv
+!sample_data/subf/Dataset/Inner Race Fault/
+!sample_data/subf/Dataset/Inner Race Fault/S_IR(1).csv
+
+!sample_data/car_diagnostics/
+!sample_data/car_diagnostics/car diagnostics dataset/
+!sample_data/car_diagnostics/car diagnostics dataset/idle state/
+!sample_data/car_diagnostics/car diagnostics dataset/idle state/normal_engine_idle/
+!sample_data/car_diagnostics/car diagnostics dataset/idle state/normal_engine_idle/normal_engine_idle_1.wav
+!sample_data/car_diagnostics/car diagnostics dataset/idle state/serpentine_belt/
+!sample_data/car_diagnostics/car diagnostics dataset/idle state/serpentine_belt/serpentine_belt_1.wav
+
+!sample_data/mafaulda/
+!sample_data/mafaulda/normal/
+!sample_data/mafaulda/normal/12.288.csv
+!sample_data/mafaulda/imbalance/
+!sample_data/mafaulda/imbalance/10g/
+!sample_data/mafaulda/imbalance/10g/13.9264.csv
+
+!sample_data/paderborn/
+!sample_data/paderborn/K001/
+!sample_data/paderborn/K001/N09_M07_F10_K001_1.mat
+!sample_data/paderborn/KA01/
+!sample_data/paderborn/KA01/N09_M07_F10_KA01_1.mat
+
+!sample_data/engine_journal_bearings/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Healthy Bearings Dataset/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Healthy Bearings Dataset/1000 RPM/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Healthy Bearings Dataset/1000 RPM/0% Humidity/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Healthy Bearings Dataset/1000 RPM/0% Humidity/-10 deg Celsius/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Healthy Bearings Dataset/1000 RPM/0% Humidity/-10 deg Celsius/1ST AT -10 c 2022May27-0325-0011.csv
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Faulty Bearings Dataset/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Faulty Bearings Dataset/1000 RPM/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Faulty Bearings Dataset/1000 RPM/0% Humidity/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Faulty Bearings Dataset/1000 RPM/0% Humidity/-10 deg Celsius/
+!sample_data/engine_journal_bearings/Engine Journal Bearings Dataset 2/Engine Journal Bearings Dataset/Faulty Bearings Dataset/1000 RPM/0% Humidity/-10 deg Celsius/1st at -10 2022Jun04-2239-0005.csv

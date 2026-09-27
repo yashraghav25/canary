@@ -39,12 +39,16 @@ from data.readers import (
 # App setup
 # ---------------------------------------------------------------------------
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=[
+    "http://localhost:5174",
+    "https://canary-submission.vercel.app",
+])
 
 # ---------------------------------------------------------------------------
 # Constants — sample_data root and per-dataset configs
 # ---------------------------------------------------------------------------
-SAMPLE_DATA = REPO_ROOT / "sample_data"
+import os
+SAMPLE_DATA = Path(os.environ.get("SAMPLE_DATA_PATH", str(REPO_ROOT / "sample_data")))
 
 # Spectrogram configs matching what the encoders were trained on
 VIB_CFG = SpectrogramConfig(sample_rate=25600)
@@ -519,4 +523,6 @@ def health_check():
     return jsonify({"status": "ok", "datasets_loaded": len(DATASETS)})
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8000, debug=True)
+    import os
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port, debug=False)
