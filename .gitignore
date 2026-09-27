@@ -16,6 +16,7 @@ __pycache__/
 Thumbs.db
 
 .env
+.env.*
 
 # Ignore all sample data except showcase files
 sample_data/**
